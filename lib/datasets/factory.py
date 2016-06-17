@@ -11,6 +11,7 @@ __sets = {}
 
 from datasets.pascal_voc import pascal_voc
 from datasets.coco import coco
+from datasets.sf_ddd import sf_ddd
 import numpy as np
 
 # Set up voc_<year>_<split> using selective search "fast" mode
@@ -30,6 +31,11 @@ for year in ['2015']:
     for split in ['test', 'test-dev']:
         name = 'coco_{}_{}'.format(year, split)
         __sets[name] = (lambda split=split, year=year: coco(split, year))
+
+# Set up State Farm Distracted Driver Detection dataset
+for split in ['test', 'small_test', 'small_trainval', 'trainval']:
+    name = 'sf_ddd_{}'.format(split)
+    __sets[name] = (lambda split=split: sf_ddd(split))
 
 def get_imdb(name):
     """Get an imdb (image database) by name."""

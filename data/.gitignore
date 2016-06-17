@@ -2,5 +2,6 @@ selective_search*
 imagenet_models*
 fast_rcnn_models*
 VOCdevkit*
+SF_DDD
 cache
 *.caffemodel
